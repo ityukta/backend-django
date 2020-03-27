@@ -83,11 +83,22 @@ class Faculty(models.Model):
         ADJUNCT = 'A', _('Adjunct')
         CONTRACT = 'C', _('Contract')
 
+    class DepartmentChoice(models.TextChoices):
+        CSE = 'CSE', _('Computer Science and Engineering')
+        ISE = 'ISE', _('Information Science and Engineering')
+        EEE = 'EEE', _('Electrical Engineering ')
+        ECE = 'ECE', _('Electronics and Communications Engineering')
+        EIE = 'EIE', _('Electronics Instrumentation Engineering')
+        MCA = 'MCA', _('Mater of Computer Applications')
+        MECH = 'MECH', _('Mechanical Engineering')
+        CIV = 'CIV', _('Civil Engineering')
+
     faculty_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     email_id = models.EmailField(max_length=100)
     password = models.CharField(max_length=128)
-    department = models.CharField(max_length=100)
+    department = models.CharField(
+        max_length=100, choices=DepartmentChoice.choices, null=True,  blank=True)
     phone = models.BigIntegerField(null=True, blank=True)
     date_of_joining = models.DateField(null=True, blank=True)
     experience = models.IntegerField(null=True, blank=True)

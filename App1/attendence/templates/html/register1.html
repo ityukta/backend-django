@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registration</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'sass/main.css' %}" />
+	</head>
+	<body>
+		<section class="register-section">
+			<div class="register">
+				<div class="register__pic">
+					<img
+						src="{% static 'images/logo.jpg' %}"
+						alt=""
+						class="register__img"
+					/>
+				</div>
+				<div class="register__details">
+					<h2 class="register__heading">Register</h2>
+					<form action="." method="POST" class="register__form">
+						{% csrf_token %}
+						<div class="register__name register__form__particular">
+							<label for="name" class="label">Name</label>
+							<input
+								type="text"
+								class="register__name__input register-input"
+								id="name"
+								name="username"
+								required
+							/>
+						</div>
+						<div class="register__email register__form__particular">
+							<label for="email" class="label">Email</label>
+							<input
+								type="email"
+								class="register__email__input register-input"
+								id="email"
+								name="email_id"
+								required
+							/>
+						</div>
+						<div class="register__password register__form__particular">
+							<label for="password" class="label">Password</label>
+							<input
+								type="password"
+								class="register__password__input register-input"
+								id="password"
+								name="password"
+								required
+							/>
+						</div>
+						<div class="register__passwordrepeat register__form__particular">
+							<label for="passwordrepeat" class="label">Repeat Password</label>
+							<input
+								type="password"
+								class="register__passwordrepeat__input register-input"
+								id="passwordrepeat"
+								name="passwordrepeat"
+								required
+							/>
+						</div>
+						<div class="register__dropdown">
+							<label for="department" class="deptlabel">Department :</label>
+							<select
+								id="department"
+								class="department__dropdown"
+								name="department"
+							>
+								<option value="CSE">CSE</option>
+								<option value="ISE">ISE</option>
+								<option value="ECE">ECE</option>
+								<option value="EEE">EEE</option>
+								<option value="MECH">MECH</option>
+								<option value="CIV">CIVIL</option>
+							</select>
+							<label for="type" class="typelabel">Type :</label>
+							<select id="type" class="type__dropdown" name="type">
+								<option value="H">HOD</option>
+								<option value="P">PROFESSOR</option>
+							</select>
+						</div>
+						<div class="register__submit">
+							<button class="register__btn bluebtn">Register</button>
+						</div>
+					</form>
+					<div class="existinglogin">
+						<span>Already have an account?</span><a href="">Login</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script>
+			// $status =
+			// alert
+			// manage the status code to display to sucess of the user
+		</script>
+	</body>
+</html>
